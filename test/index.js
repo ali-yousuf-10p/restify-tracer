@@ -5,7 +5,7 @@ const server = restify.createServer();
 const tracer = require('../');
 
 server.use(restify.bodyParser());
-server.use(restify.requestLogger(), tracer({ limit: 500, hide: ['hella'] }));
+server.use(restify.requestLogger(), tracer({ limit: 500, hide: ['user.email', 'password'] }));
 server.post('/', (req, res) => {
   res.send('Hello');
 });
